@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./script.js"></script>
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+  integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
 
 </head>
 <body>
@@ -23,11 +25,11 @@
   <div class="row">
     <div class="col-4">
         <div class="card">
-            <div class="form-group">
+            <div class="form-group" id="searchBox">
                 <h5><label for="search">Search for a City:</label></h5>
                 <input type="text" class="form-control" id="userInput">
             </div>
-            <button id="search" class="btn btn-primary">Search</button>  
+            <button id="search" class="btn btn-primary"><i class="fas fa-search"></i></button>  
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                    
@@ -41,11 +43,11 @@
 
     <div class="col-8">
         <div class="card">
-            <h5 class="card-title" id="cityName">fddd</h5>
-            <p id="tempereture">fdfd</p>
-            <p id="humidity">fdfd</p>
-            <p id="windSpeed">fdfd</p>
-            <p id="UV">fdfd</p>
+            <h4 class="card-title" id="cityName"></h4>
+            <p id="temperature"></p>
+            <p id="humidity"></p>
+            <p id="windSpeed"></p>
+            <p id="UV"></p>
             
 
 
