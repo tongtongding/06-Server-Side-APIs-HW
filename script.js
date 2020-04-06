@@ -52,7 +52,7 @@ $(document).ready(function(){
             url:weatherURL,
             method:"GET"
         }).then(function(response){
-            // console.log(response);
+            console.log(response);
 
             //city name and icon
             var icon = response.weather[0].icon;
@@ -68,7 +68,7 @@ $(document).ready(function(){
             //temperature
             var tempF = (response.main.temp - 273.15) * 1.80 + 32;
             tempF=tempF.toFixed(2);
-            $("#temperature").text("Temperature: " + tempF + " F");
+            $("#temperature").text("Temperature: " + tempF + " °F");
 
             //humidity and wind speed
             $("#humidity").text("Humidity: " + response.main.humidity + " %");
@@ -84,7 +84,7 @@ $(document).ready(function(){
                     url:uvURL,
                     method:"GET"
                 }).then(function(uvData){
-                    // console.log(uvData);
+                    console.log(uvData);
                     var uvNumber = uvData.value;
 
                     $("#UV").text("UV Index: ");
@@ -121,12 +121,12 @@ $(document).ready(function(){
                     url:forecastURL,
                     method:"GET"
                 }).then(function(forecastData){
-                    // console.log(forecastDate);
+                    console.log(forecastData);
 
                     // console.log(forecastDate.list[0].dt_txt);
 
                     for(var i=0; i<forecastData.list.length; i++){
-                        if (forecastData.list[i].dt_txt.indexOf("12:00:00")!== -1){
+                        if (forecastData.list[i].dt_txt.indexOf("15:00:00")!== -1){
 
                             var newCardDiv = $("<div>").addClass("card");
 
@@ -139,8 +139,9 @@ $(document).ready(function(){
                             var newIconURL = "http://openweathermap.org/img/wn/"+newIcon+"@2x.png";
                             var imgIcon = $("<img>").attr("src",newIconURL);
                   
-
-                            var tempElement = $("<p>").text("Temp: " + forecastData.list[i].main.temp +" F");
+                            var tempFF = (forecastData.list[i].main.temp - 273.15) * 1.80 + 32;
+                            tempFF=tempFF.toFixed(2);
+                            var tempElement = $("<p>").text("Temp: " + tempFF +" °F");
 
                             var humElement = $("<p>").text("Humidity: " + forecastData.list[i].main.humidity +"%");
 
