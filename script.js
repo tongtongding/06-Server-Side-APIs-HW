@@ -22,10 +22,10 @@ $(document).ready(function(){
     //city list
     function addCity(city){
         var ulElement=$("ul");
-        var liElement=$("<li>");
-        liElement.attr("class","list-group-item");
-        liElement.text(city);
-        ulElement.append(liElement);
+        var buttonElement=$("<button>");
+        buttonElement.attr("class","list-group-item");
+        buttonElement.text(city);
+        ulElement.append(buttonElement);
     }
 
     //add click event for city list
