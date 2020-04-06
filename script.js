@@ -23,13 +23,13 @@ $(document).ready(function(){
     function addCity(city){
         var ulElement=$("ul");
         var buttonElement=$("<button>");
-        buttonElement.attr("class","list-group-item");
+        buttonElement.attr("class","cityListBtn");
         buttonElement.text(city);
         ulElement.append(buttonElement);
     }
 
     //add click event for city list
-    $(".list-group-item").on("click",function(){
+    $(".cityListBtn").on("click",function(){
         event.preventDefault();
         var cityClick = $(this).text();
         console.log(cityClick);
