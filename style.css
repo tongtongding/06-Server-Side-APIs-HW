@@ -4,6 +4,9 @@
     margin-bottom: 0;
 }
 
+#searchBtn{
+    background-color:#20315A ;
+}
 
 #row1{
     margin: 0;
@@ -44,3 +47,12 @@
 
 }
 
+.forecastCard{
+    display: inline-block !important;
+    width: 18% !important;
+    margin-right: 10px;
+    padding: 5px;
+    height: 250px;
+    color: white;
+    background-color: #20315A !important;
+}
