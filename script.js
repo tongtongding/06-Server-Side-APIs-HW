@@ -14,9 +14,10 @@ $(document).ready(function(){
                addCity(cityArray[i]);
            }
            searchWeather(cityArray[cityArray.length-1]);
-       };
-   };
-   
+       }
+
+   }
+   getHistory();
 
     //city list
     function addCity(city){
@@ -25,20 +26,22 @@ $(document).ready(function(){
         liElement.attr("class","list-group-item");
         liElement.text(city);
         ulElement.append(liElement);
-    };
+    }
 
-    //add click even to city list
+    //add click event for city list
     $(".list-group-item").on("click",function(){
         event.preventDefault();
         var cityClick = $(this).text();
         console.log(cityClick);
         searchWeather(cityClick);
-    });
 
-    //create function for searching weather 
+    })
+
+
+    // create function for searching weather
     function searchWeather (city){
         var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+APIKey;
-        var uvURL="";
+            var uvURL="";
             
             $.ajax({
                 url:weatherURL,
@@ -77,13 +80,13 @@ $(document).ready(function(){
                         method:"GET"
                     }).then(function(uvData){
                         console.log(uvData);
+
                         var uvNumber = uvData.value;
-    
                         $("#UV").text("UV Index: ");
                         var spanEle = $("<span>").text(uvNumber);
                         $("#UV").append(spanEle);
-
-                        // add different classes to uvNumber 
+                        
+                        //UV index color 
                         if(uvNumber<3){
                             spanEle.removeClass("low moderate high veryHigh extreme").addClass("low");
                             
@@ -113,16 +116,15 @@ $(document).ready(function(){
                         url:forecastURL,
                         method:"GET"
                     }).then(function(forecastData){
-
                         console.log(forecastData);
-
+    
                         $("#forecastBox").empty();
     
                         for(var i=0; i<forecastData.list.length; i++){
                             if (forecastData.list[i].dt_txt.indexOf("15:00:00")!== -1){
     
                                 var newCardDiv = $("<div>").addClass("card forecastCard");
-    
+                                
                                 var currentDate = moment(forecastData.list[i].dt_txt).format("MM/DD/YYYY");
                                 var forecastDate = $("<h5>").text(currentDate);
     
@@ -139,8 +141,11 @@ $(document).ready(function(){
                                 newCardDiv.append(forecastDate, imgIcon,tempElement,humElement);
     
                                 $("#forecastBox").append(newCardDiv);
+      
                             }
+    
                         }
+    
                     })
             })
     }
@@ -153,16 +158,17 @@ $(document).ready(function(){
         if(city===""){
             return
         };
-
+  
         if(cityArray.indexOf(city)===-1){
             addCity(city);
             cityArray.push(city);
             localStorage.setItem("cityList",JSON.stringify(cityArray));
+          
         };
         
         searchWeather(city);
+
     })
 
-    getHistory();
 
 })
