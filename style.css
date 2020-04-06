@@ -1,9 +1,46 @@
 #searchBox{
-display: inline;
-width: 200px;
+    padding-left:0 ;
+    padding-right: 5px;
+    margin-bottom: 0;
 }
 
-#search{
-    display: inline;
-    width: 50px;
+
+#row1{
+    margin: 0;
+    padding: 10px;
 }
+
+#weatherCard{
+    padding: 10px;
+}
+
+
+.low{
+    background-color: green;
+}
+
+.moderate{
+    background-color: yellow;
+}
+
+.high{
+    background-color:orange;
+}
+
+.veryHigh{
+    background-color: red;
+}
+
+.extreme{
+    background-color: purple;
+}
+
+.low, 
+.moderate, 
+.high, 
+.veryHigh, 
+.extreme{
+    padding: 5px;
+
+}
+
