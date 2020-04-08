@@ -19,13 +19,15 @@ $(document).ready(function(){
    }
    getHistory();
 
-    //city list
+    //city list as a button
     function addCity(city){
         var ulElement=$("ul");
+        var liElement=$("<li>")
         var buttonElement=$("<button>");
         buttonElement.attr("class","cityListBtn");
         buttonElement.text(city);
-        ulElement.append(buttonElement);
+        liElement.append(buttonElement)
+        ulElement.append(liElement);
     }
 
     //add click event for city list
