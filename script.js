@@ -31,7 +31,7 @@ $(document).ready(function(){
     }
 
     //add click event for city list
-    $(".cityListBtn").on("click",function(){
+    $(document).on("click",".cityListBtn",function(){
         event.preventDefault();
         var cityClick = $(this).text();
         console.log(cityClick);
